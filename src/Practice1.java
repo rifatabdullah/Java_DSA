@@ -30,63 +30,20 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 // 
 
-class Animal{
-    String name; // Instance Variable inside a Class and which belongs the very object of this Class 
-
-    Animal(String name){ // Same name as Upper class means Constructor 
-        this.name  = name ; // Class Attribute (this.name)
-        System.out.println("\nPrinting from the depth of the Constructor: "+this.name+"\n");
-    }
-
-
-    public static void main(String [] args){
-
-        Animal dog = new Animal("HAxx");
-    }
-}
+// class Animal{
+//     String name; // Instance Variable inside a Class and which belongs the very object of this Class 
+//     // With 'static' keyword we can write class Variable
+//     Animal(String name){ // Same name as Upper class means Constructor 
+//         this.name  = name ; // Class Attribute (this.name)
+//         System.out.println("\nPrinting from the depth of the Constructor: "+this.name+"\n");
+//     }
 
 
+//     public static void main(String [] args){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//         Animal dog = new Animal("HAxx");
+//     }
+// }
 
 
 
@@ -143,7 +100,7 @@ class Animal{
 
 
 
-// Linked List and Node 
+//// Linked List and Node 
 
 // class LL{
 //     Node head;
@@ -175,3 +132,51 @@ class Animal{
 //         LL new_list = new LL();
 //     }
 // }
+
+
+// Array to LinkedList
+
+class LL{
+    Node head; // how Node working here? Isn't isn't it a user-defined class name?
+    Node tail;
+    class Node{ // User defined Class
+        int data;
+        Node next;
+        Node(int data ){
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public void createList(int[] arr){
+        if (arr.length == 0){
+            return; // Terminates the code if array's length is 0
+        }
+        Node head = new Node(arr[0]); // creating new head node using Array's first element
+        Node tail = head; // To get last element
+
+        for(int i = 1; i < arr.length; i++){
+             Node new_node = new Node(arr[i]);
+                tail.next = new_node;
+                tail = new_node;
+            }
+            // return head; it doesn't work here 
+        }
+        public void printList(Node head){
+            Node current = head;
+            while( current != null){
+                System.out.print(current.data+"--> ");
+                current = current.next;
+            }
+            System.out.println("Null Appeared! ");
+        }
+
+
+        public static void main (String[] args){
+            LL new_LL = new LL();
+            int[] arr = {1,2,3,4};
+
+            new_LL.createList(arr);
+            new_LL.printList();
+        }
+}
