@@ -98,32 +98,111 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 // // Bubble Sort
 
-class BB_Sort{
-    public static void main (String [] args){
+// class BB_Sort{
+//     public static void main (String [] args){
+//         int[] arr = {7,8,3,1,2};
+//         int temp = 0;
+
+//         for(int i = 0 ; i < arr.length - 1; i++){ // if we didn't put -1, then this loop will go tot the last element of the array and then it would try to swap with the non-existing front part
+
+//             for (int j = 0; j < arr.length - i - 1; j++){ // (-i) -- it'll not goto the latest sorted element by the previous iteration || (-1) -- for this loop won't goto the last element 
+
+//               if (arr[j] > arr[j+1]){
+//                 temp = arr[j+1];
+//                 arr[j+1] = arr[j];
+//                 arr[j] = temp;
+//               }
+//                }
+//             }
+        
+
+//         System.out.println("Sorted Arrays: ");
+//         for (int i = 0 ; i < arr.length; i++){
+//             System.out.print(arr[i]+" ");
+//         }
+
+
+//     }
+// }
+
+
+
+
+
+
+
+// // Selection Sort 
+
+class S_Sort{
+    
+    public static void main (String[] args){
         int[] arr = {7,8,3,1,2};
-        int temp = 0;
+        int small,temp ;
 
-        for(int i = 0 ; i < arr.length - 1; i++){ // if we didn't put -1, then this loop will go tot the last element of the array and then it would try to swap with the non-existing front part
-        
-            for (int j = 0; j < arr.length - i - 1; j++){ // (-i) -- it'll not goto the latest sorted element by the previous iteration || (-1) -- for this loop won't goto the last element 
+        for (int i = 0; i < arr.length-1 ; i++){ // (-1) without it loop will goto to last element then try to go i+1 in inner loop, but it doesn't exist. 
 
-              if (arr[j] > arr[j+1]){
-                temp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = temp;
-              }
-               }
+            small = i;
+            for (int j = i+1 ; j < arr.length ; j++){ // j=i+1 -- as at first the smallest element will go,so we won't bother the already smallest element of the Array
+
+                if (arr[small] > arr[j]){
+                    small = j; // Smallest Just saving the position of smallest value 
+                }
+            } 
+                            
+            temp = arr[small]; // Saves smallest value
+
+            arr[small] = arr[i];  // Exchanging smallest value's position with the i th position's element in order to move forward the the bigger value. At smallest's position it exchanges with bigger value
+
+            arr[i] = temp;  // Exchanges i th value with the smallest element in the array and put in leftest position 
+
+            System.out.print("\n Sorting: ");
+            for (int k = 0 ; k < arr.length; k++){ // Just to see the Sorting process after each iteration of i
+
+                System.out.print(arr[k]+" ");
             }
-        
-
-        System.out.println("Sorted Arrays: ");
-        for (int i = 0 ; i < arr.length; i++){
-            System.out.print(arr[i]+" ");
         }
+
+        System.out.println("\n\n\nSorted Arrays: ");
+            for (int i = 0 ; i < arr.length; i++){
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println("\n");
 
 
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
