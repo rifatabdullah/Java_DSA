@@ -5,6 +5,37 @@ class AssgnTask4{
     //YOU ONLY HAVE TO SUBMIT THIS METHOD, NO OTHER DRIVER CODE
     public static void playGame( Integer[][] arena ){
 
+        int total = 0 ;
+
+
+
+
+        for (int i = 0; i < arena.length; i++){
+            for (int j = 0 ; j < arena[0].length; j++){
+                if ((arena[i][j] >= 50 )&&(arena[i][j] % 50 == 0)){
+                    // (i != 0)&&(j != 0)&&(i < arena.length - 1)&&(j < arena[0].length-1)){
+
+                        if ((i != 0)&&(arena[i-1][j] == 2)){
+                            total+=2;
+                        }
+                        
+                        if ((i < arena.length - 1)&&(arena[i+1][j] == 2)){
+                            total+=2;
+                        }
+                        
+                        if ((j != 0 )&&(arena[i][j-1] == 2)){
+                            total+=2;
+                        }
+                        
+                        if ((j < arena[0].length-1)&&(arena[i][j+1] == 2)){
+                            total+=2;
+                        }
+                    
+                }
+            }
+        }
+        System.out.println(total);
+
         //For this task you don't need to create any new 2D array
         //just print the result inside the function
         
