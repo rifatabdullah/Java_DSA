@@ -52,7 +52,7 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 // // Arrays
 
-// Printing minimum and maximum values in ana array
+// Printing minimum and maximum values in an a array
 
 // import java.util.Scanner;
 
@@ -133,45 +133,45 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 // // Selection Sort 
 
-class S_Sort{
+// class S_Sort{
     
-    public static void main (String[] args){
-        int[] arr = {7,8,3,1,2};
-        int small,temp ;
+//     public static void main (String[] args){
+//         int[] arr = {7,8,3,1,2};
+//         int small,temp ;
 
-        for (int i = 0; i < arr.length-1 ; i++){ // (-1) without it loop will goto to last element then try to go i+1 in inner loop, but it doesn't exist. 
+//         for (int i = 0; i < arr.length-1 ; i++){ // (-1) without it loop will goto to last element then try to go i+1 in inner loop, but it doesn't exist. 
 
-            small = i;
-            for (int j = i+1 ; j < arr.length ; j++){ // j=i+1 -- as at first the smallest element will go,so we won't bother the already smallest element of the Array
+//             small = i;
+//             for (int j = i+1 ; j < arr.length ; j++){ // j=i+1 -- as at first the smallest element will go,so we won't bother the already smallest element of the Array
 
-                if (arr[small] > arr[j]){
-                    small = j; // Smallest Just saving the position of smallest value 
-                }
-            } 
+//                 if (arr[small] > arr[j]){
+//                     small = j; // Smallest Just saving the position of smallest value 
+//                 }
+//             } 
                             
-            temp = arr[small]; // Saves smallest value
+//             temp = arr[small]; // Saves smallest value
 
-            arr[small] = arr[i];  // Exchanging smallest value's position with the i th position's element in order to move forward the the bigger value. At smallest's position it exchanges with bigger value
+//             arr[small] = arr[i];  // Exchanging smallest value's position with the i th position's element in order to move forward the the bigger value. At smallest's position it exchanges with bigger value
 
-            arr[i] = temp;  // Exchanges i th value with the smallest element in the array and put in leftest position 
+//             arr[i] = temp;  // Exchanges i th value with the smallest element in the array and put in leftest position 
 
-            System.out.print("\n Sorting: ");
-            for (int k = 0 ; k < arr.length; k++){ // Just to see the Sorting process after each iteration of i
+//             System.out.print("\n Sorting: ");
+//             for (int k = 0 ; k < arr.length; k++){ // Just to see the Sorting process after each iteration of i
 
-                System.out.print(arr[k]+" ");
-            }
-        }
+//                 System.out.print(arr[k]+" ");
+//             }
+//         }
 
-        System.out.println("\n\n\nSorted Arrays: ");
-            for (int i = 0 ; i < arr.length; i++){
-                System.out.print(arr[i]+" ");
-            }
-            System.out.println("\n");
+//         System.out.println("\n\n\nSorted Arrays: ");
+//             for (int i = 0 ; i < arr.length; i++){
+//                 System.out.print(arr[i]+" ");
+//             }
+//             System.out.println("\n");
 
 
-    }
+//     }
 
-}
+// }
 
 
 
@@ -245,8 +245,6 @@ class S_Sort{
 //       }
 
 //       System.out.println("\nFor your number "+c+", indices: Row: "+ir+", Column: "+ic+". ");
-      
-    
 //    }
 // } 
 
@@ -257,59 +255,35 @@ class S_Sort{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // // 2D array
 
-// import java.lang.Math;
-// class Practice1 {    
-//     public static void main (String [] args) {
-//         // 2D array -- an array of arrays
-//         int[][] a = new int[3][4];
+import java.lang.Math;
+class Practice1 {    
+    public static void main (String [] args) {
+        // 2D array -- an array of arrays
+        int[][] a = new int[3][4];
 
-//     for ( int i = 0 ; i < a.length; i++){
-//         for (int j = 0 ; j < a[i].length;j++){
-//             a[i][j] = (int)(Math.random()*10); // random() -- gives (double) fractional values less than 1. So we have to multiply it with 10 or 100 to get desired digit. Also, we have to convert into int in order to prevent type mismatch with the declared Array type. 
-//         }
-//     }
-//     for (int i = 0; i< a.length; i++){
+    for ( int i = 0 ; i < a.length; i++){
+        for (int j = 0 ; j < a[i].length;j++){
+            a[i][j] = (int)(Math.random()*10); // random() -- gives (double) fractional values less than 1. So we have to multiply it with 10 or 100 to get desired digit. Also, we have to convert into int in order to prevent type mismatch with the declared Array type. 
+        }
+    }
+    for (int i = 0; i< a.length; i++){
 
-//         for (int j = 0; j < a[i].length;j++){ // Until Row Length
-//             System.out.print(a[i][j]+" ");
-//         }
-//         System.out.println();
-//     }
-//     // Or,
-//     // System.out.println("\nNew Style of Printing Array \n");
-//     // for (int n[]: a){ // Take array of a via n[] 
-//     //     for (int m: n ){ // Then form n array, take individual element and print 
-//     //         System.out.print(m+" ");
-//     //     }
-//     //     System.out.println();
-//     }
-// }
+        for (int j = 0; j < a[i].length;j++){ // Until Row Length
+            System.out.print(a[i][j]+" ");
+        }
+        System.out.println();
+    }
+    // Or,
+    // System.out.println("\nNew Style of Printing Array \n");
+    // for (int n[]: a){ // Take array of a via n[] 
+    //     for (int m: n ){ // Then form n array, take individual element and print 
+    //         System.out.print(m+" ");
+    //     }
+    //     System.out.println();
+    }
+}
 
 
 

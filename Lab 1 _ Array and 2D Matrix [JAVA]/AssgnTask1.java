@@ -1,10 +1,29 @@
 //Assignment Task 01: Container with Most Water
 class AssgnTask1{
-
-    //Complete this method so that it gives the Expected Output
-    //YOU ONLY HAVE TO SUBMIT THIS METHOD, NO OTHER DRIVER CODE
+ 
     public static void mostWater( Integer[] height ){
+        int max = 0;
+        int area = 0;
+        for (int i = 0; i < (height.length -1); i++ ){
 
+            for (int j = i+1; j < height.length; j++){
+                int wid = j-i;
+                int len = 0;
+                if (height[i] > height[j]){
+                    len = height[j];
+                }
+                else{
+                    len = height[i];
+                }
+
+                area = wid * len;
+                if (max < area){
+                    max = area;
+                }
+            }
+        }
+        System.out.println(max);
+        
         //TO DO
 
     }
