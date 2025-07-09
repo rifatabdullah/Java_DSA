@@ -257,33 +257,33 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 // // 2D array
 
-import java.lang.Math;
-class Practice1 {    
-    public static void main (String [] args) {
-        // 2D array -- an array of arrays
-        int[][] a = new int[3][4];
+// import java.lang.Math;
+// class Practice1 {    
+//     public static void main (String [] args) {
+//         // 2D array -- an array of arrays
+//         int[][] a = new int[3][4];
 
-    for ( int i = 0 ; i < a.length; i++){
-        for (int j = 0 ; j < a[i].length;j++){
-            a[i][j] = (int)(Math.random()*10); // random() -- gives (double) fractional values less than 1. So we have to multiply it with 10 or 100 to get desired digit. Also, we have to convert into int in order to prevent type mismatch with the declared Array type. 
-        }
-    }
-    for (int i = 0; i< a.length; i++){
+//     for ( int i = 0 ; i < a.length; i++){
+//         for (int j = 0 ; j < a[i].length;j++){
+//             a[i][j] = (int)(Math.random()*10); // random() -- gives (double) fractional values less than 1. So we have to multiply it with 10 or 100 to get desired digit. Also, we have to convert into int in order to prevent type mismatch with the declared Array type. 
+//         }
+//     }
+//     for (int i = 0; i< a.length; i++){
 
-        for (int j = 0; j < a[i].length;j++){ // Until Row Length
-            System.out.print(a[i][j]+" ");
-        }
-        System.out.println();
-    }
-    // Or,
-    // System.out.println("\nNew Style of Printing Array \n");
-    // for (int n[]: a){ // Take array of a via n[] 
-    //     for (int m: n ){ // Then form n array, take individual element and print 
-    //         System.out.print(m+" ");
-    //     }
-    //     System.out.println();
-    }
-}
+//         for (int j = 0; j < a[i].length;j++){ // Until Row Length
+//             System.out.print(a[i][j]+" ");
+//         }
+//         System.out.println();
+//     }
+//     // Or,
+//     // System.out.println("\nNew Style of Printing Array \n");
+//     // for (int n[]: a){ // Take array of a via n[] 
+//     //     for (int m: n ){ // Then form n array, take individual element and print 
+//     //         System.out.print(m+" ");
+//     //     }
+//     //     System.out.println();
+//     }
+// }
 
 
 
@@ -369,6 +369,9 @@ class Practice1 {
 //             int[] arr = {1,2,3,4};
 //             new_LL.createList(arr);
 //             new_LL.printList();
+//             System.out.println();
+//              new_LL.prependList(arr, 55);
+//             new_LL.printList();
 //         }
 // }
 
@@ -379,87 +382,87 @@ class Practice1 {
 
 // // Linked List Manupulation
 
-// class LL {
-//     Node head;
-//     Node tail;
-//     class Node{
-//         String data;
-//         Node next ;
-//         Node(String data){
-//             this.data = data;
-//             this.next = null;
-//         }
-//     }
+class LL {
+    Node head;
+    Node tail;
+    class Node{
+        String data;
+        Node next ;
+        Node(String data){
+            this.data = data;
+            this.next = null;
+        }
+    }
 
-    // Add at first element
+/// Add at first element
 
-//     public void add_First(String data){
-//         Node new_node = new Node(data);
-//         if (head == null){ // If no node exists it'll do then head node will be:
-//            head = new_node; // Stores new created Node into the head node.
-//            return; // and ends the function, as it's only one node 
-//         }
+    public void add_First(String data){
+        Node new_node = new Node(data);
+        if (head == null){ // If no node exists it'll do then head node will be:
+           head = new_node; // Stores new created Node into the head node.
+           return; // and ends the function, as it's only one node 
+        }
 
-//         new_node.next = head;// new_node's next took head's value started new new_node sequentially 
+        new_node.next = head;// new_node's next took head's value started new new_node sequentially 
 
-//         head = new_node; // In order to change the head of new node as in previous line we only passed the head's value into new_node's next 
-//     }
+        head = new_node; // In order to change the head of new node as in previous line we only passed the head's value into new_node's next 
+    }
 
-//     public void add_Last(String data){
-//         Node new_node = new Node(data);
-        // if (head == null){ // If no node exists it'll do then head node will be:
-//            head = new_node; // Stores new created Node into the head node.
-//            return; // and ends the function, as it's only one node  
-//         }
+    public void add_Last(String data){
+        Node new_node = new Node(data);
+        if (head == null){ // If no node exists it'll do then head node will be:
+           head = new_node; // Stores new created Node into the head node.
+           return; // and ends the function, as it's only one node  
+        }
 
-//         Node current = head; // Without this current node we will lose the head of the existing Linked List
+        Node current = head; // Without this current node we will lose the head of the existing Linked List
 
-//         while (current.next != null){ //For loop isn't possible as we don't know the length of the Linked List unless we calculate the size with another while loop
+        while (current.next != null){ //For loop isn't possible as we don't know the length of the Linked List unless we calculate the size with another while loop
 
-//              current = current.next; // Basically traversing the whole Linked List/node-to-node and assigning at current node until current node's next become null
-//         }
-//         current.next = new_node;
+             current = current.next; // Basically traversing the whole Linked List/node-to-node and assigning at current node until current node's next become null
+        }
+        current.next = new_node;
 
-//     }
+    }
 
-//     // Deleting the first element
-//     public void del_first(){
-//         if (head == null){ //for Corner case
-//             System.out.println("This list is empty!");
-//             return;
-//         }
+    // Deleting the first element
+    public void del_first(){
+        if (head == null){ //for Corner case
+            System.out.println("This list is empty!");
+            return;
+        }
 
-//         head = head.next; // If head takes previous head's next data the existing head's value will be gone
-//     }
+        head = head.next; // If head takes previous head's next data the existing head's value will be gone
+    }
 
-//     public void del_last()
-
-
-
-//     public void print_List(){
-//         if (head == null){
-//             System.out.println("Empty List.");
-//         }
-
-//         Node current = head;
-//         while (current != null){
-//             System.out.print(current.data+"--> ");
-//             current = current.next;
-//         }
-//         System.out.println("Null Appeared!! ");
-//     }
+    public void del_last()
 
 
-//     public static void main (String [] args){
-//         LL xx = new LL();
-//         xx.add_First("A");
-//         xx.add_First("B");
-//         xx.add_Last("Z");
-//         xx.print_List();
-//     }
+
+    public void print_List(){
+        if (head == null){
+            System.out.println("Empty List.");
+        }
+
+        Node current = head;
+        while (current != null){
+            System.out.print(current.data+"--> ");
+            current = current.next;
+        }
+        System.out.println("Null Appeared!! ");
+    }
+
+
+    public static void main (String [] args){
+        LL xx = new LL();
+        xx.add_First("A");
+        xx.add_First("B");
+        xx.add_Last("Z");
+        xx.print_List();
+    }
 
     
 
-// }
+}
 
 
