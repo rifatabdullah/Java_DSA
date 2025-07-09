@@ -8,26 +8,51 @@ class AssgnTask3{
 
         int r = matrix.length;
         int c = matrix[0].length;
-        Integer[][] new_arr = new Integer[r/2][c/2];
+        Integer[][] new_mat = new Integer[r/2][c/2];
         int total = 0;
 
+        for (int i = 0; i < matrix.length - 1; i+= 2){
+            for (int j = 0; j < matrix[0].length - 1; j+= 2){
+                total = matrix[i][j]+
+                            matrix[i+1][j]+
+                            matrix[i][j+1]+
+                            matrix[i+1][j+1];
 
-        for (int i = 0; i < r-1; i+=2){
-            for (int j = 0; j < c-1; j+=2){
-                total = matrix[i][j]+matrix[i][j+1]+matrix[i+1][j]+matrix[i+1][j+1];
-
-                new_arr[i/2][j/2] = total;
+                new_mat[i/2][j/2] = total; 
 
             }
         }
 
+        return new_mat;
 
-        //For this task you'll need to create new 2D array
+
+
+
+
+
+
+        // int r = matrix.length;
+        // int c = matrix[0].length;
+        // Integer[][] new_arr = new Integer[r/2][c/2];
+        // int total = 0;
+
+
+        // for (int i = 0; i < r-1; i+=2){
+        //     for (int j = 0; j < c-1; j+=2){
+        //         total = matrix[i][j]+matrix[i][j+1]+matrix[i+1][j]+matrix[i+1][j+1];
+
+        //         new_arr[i/2][j/2] = total;
+
+        //     }
+        // }
+
+
+        // //For this task you'll need to create new 2D array
         
-        //TO DO
+        // //TO DO
 
-        //remove the line below and return the newly created Compressed 2D matrix
-        return new_arr;
+        // //remove the line below and return the newly created Compressed 2D matrix
+        // return new_arr;
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE

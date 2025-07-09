@@ -2,27 +2,84 @@
 class AssgnTask1{
  
     public static void mostWater( Integer[] height ){
-        int max = 0;
+        
+        int width = 0;
+        int max = 0 ;
         int area = 0;
-        for (int i = 0; i < (height.length -1); i++ ){
+        int h = 0;
+        for (int i = 0; i < height.length - 1; i++){
 
-            for (int j = i+1; j < height.length; j++){
-                int wid = j-i;
-                int len = 0;
-                if (height[i] > height[j]){
-                    len = height[j];
+            for (int j = i+1; j < height.length ;j++){
+                width = j - i;
+                if ( height[i] > height[j]){
+                    h = height[j];
                 }
                 else{
-                    len = height[i];
+                    h = height[i];
                 }
 
-                area = wid * len;
-                if (max < area){
+                area = width*h;
+
+                if ( area > max){
                     max = area;
                 }
+
             }
         }
         System.out.println(max);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // int max = 0;
+        // int area = 0;
+        // for (int i = 0; i < (height.length -1); i++ ){
+
+        //     for (int j = i+1; j < height.length; j++){
+        //         int wid = j-i;
+        //         int len = 0;
+        //         if (height[i] > height[j]){
+        //             len = height[j];
+        //         }
+        //         else{
+        //             len = height[i];
+        //         }
+
+        //         area = wid * len;
+        //         if (max < area){
+        //             max = area;
+        //         }
+        //     }
+        // }
+        // System.out.println(max);
         
         //TO DO
 

@@ -2,45 +2,74 @@
 class AssgnTask2{
 
     public static Integer rowRotation( Integer examWeek, String[][] matrix ){
-        int r = matrix.length;
-        int c = matrix[0].length; 
 
-        for (int i = 0; i < (examWeek%r) - 1 ; i++){ // (-1) will useful. Without it, loop will go one step more and (examWeek%r) is based on length not index so - 1 is necessary.
+        String[] curn = new String[matrix.length-1];
 
-            String[] hold = matrix[r-1];
-            for (int j = r-1 ; j > 0 ; j-- ){
 
+        for ( int i = 0; i < examWeek-1; i++){
+            String[] last = matrix[matrix.length - 1];
+            for ( int j = matrix.length - 1; j > 0; j--){
                 matrix[j] = matrix[j-1];
+
             }
-            matrix[0] = hold; // At first row it'll pass the last row. 
-  
+            matrix[0] = last;
         }
 
-        int row = 0;
-        for (int i = 0; i < matrix.length; i++){
-            for (int j = 0; j < matrix[0].length; j++){
-                 
-                if (matrix[i][j].equals("AA")){
-                    row = i+1 ;
-                }
-                if (j == matrix[0].length-1){
-                    System.out.print(" "+matrix[i][j]+"  |");    
-                }
-                else{
-                    System.out.print("|  "+matrix[i][j]+"  ");
+        int row =0;
 
+        for (int i = 0; i < matrix.length ; i++){
+            for (int j = 0; j < matrix[0].length ; j++){
+                if (matrix[i][j].equals("AA")){
+                    row = i+1;
                 }
-                
+
+                System.out.print(" "+matrix[i][j]+" ");
             }
             System.out.println();
         }
 
-        //For this task you don"t need to create new arrays
-        //After rotation the Matrix should be printed inside the method
-        //Only the integer row number is to be returned
-
-        //TO DO
         return row;
+
+
+        // int r = matrix.length;
+        // int c = matrix[0].length; 
+
+        // for (int i = 0; i < (examWeek%r) - 1 ; i++){ // (-1) will useful. Without it, loop will go one step more and (examWeek%r) is based on length not index so - 1 is necessary.
+
+        //     String[] hold = matrix[r-1];
+        //     for (int j = r-1 ; j > 0 ; j-- ){
+
+        //         matrix[j] = matrix[j-1];
+        //     }
+        //     matrix[0] = hold; // At first row it'll pass the last row. 
+  
+        // }
+
+        // int row = 0;
+        // for (int i = 0; i < matrix.length; i++){
+        //     for (int j = 0; j < matrix[0].length; j++){
+                 
+        //         if (matrix[i][j].equals("AA")){
+        //             row = i+1 ;
+        //         }
+        //         if (j == matrix[0].length-1){
+        //             System.out.print(" "+matrix[i][j]+"  |");    
+        //         }
+        //         else{
+        //             System.out.print("|  "+matrix[i][j]+"  ");
+
+        //         }
+                
+        //     }
+        //     System.out.println();
+        // }
+
+        // //For this task you don"t need to create new arrays
+        // //After rotation the Matrix should be printed inside the method
+        // //Only the integer row number is to be returned
+
+        // //TO DO
+        // return row;
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
