@@ -382,87 +382,192 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 // // Linked List Manupulation
 
-class LL {
+// class LL {
+//     Node head;
+//     Node tail;
+//     class Node{
+//         String data;
+//         Node next ;
+//         Node(String data){
+//             this.data = data;
+//             this.next = null;
+//         }
+//     }
+
+// /// Add at first element
+
+//     public void add_First(String data){
+//         Node new_node = new Node(data);
+//         if (head == null){ // If no node exists it'll do then head node will be:
+//            head = new_node; // Stores new created Node into the head node.
+//            return; // and ends the function, as it's only one node 
+//         }
+
+//         new_node.next = head;// new_node's next took head's value started new new_node sequentially 
+
+//         head = new_node; // In order to change the head of new node as in previous line we only passed the head's value into new_node's next 
+//     }
+
+//     public void add_Last(String data){
+//         Node new_node = new Node(data);
+//         if (head == null){ // If no node exists it'll do then head node will be:
+//            head = new_node; // Stores new created Node into the head node.
+//            return; // and ends the function, as it's only one node  
+//         }
+
+//         Node current = head; // Without this current node we will lose the head of the existing Linked List
+
+//         while (current.next != null){ //For loop isn't possible as we don't know the length of the Linked List unless we calculate the size with another while loop
+
+//              current = current.next; // Basically traversing the whole Linked List/node-to-node and assigning at current node until current node's next become null
+//         }
+//         current.next = new_node;
+
+//     }
+
+//     // Deleting the first element
+//     public void del_first(){
+//         if (head == null){ //for Corner case
+//             System.out.println("This list is empty!");
+//             return;
+//         }
+
+//         head = head.next; // If head takes previous head's next data the existing head's value will be gone
+//     }
+
+//     public void del_last()
+
+
+
+//     public void print_List(){
+//         if (head == null){
+//             System.out.println("Empty List.");
+//         }
+
+//         Node current = head;
+//         while (current != null){
+//             System.out.print(current.data+"--> ");
+//             current = current.next;
+//         }
+//         System.out.println("Null Appeared!! ");
+//     }
+
+
+//     public static void main (String [] args){
+//         LL xx = new LL();
+//         xx.add_First("A");
+//         xx.add_First("B");
+//         xx.add_Last("Z");
+//         xx.print_List();
+//     }
+
+    
+
+// }
+
+
+
+
+
+
+
+
+
+// // Basic LinkListing
+
+// class Nodi{
+//     Node head;
+
+//     class Node{
+//         int data;
+//         Node next;
+//         Node(int data){
+//             this.data = data;
+//             this.next = null;
+//         }
+//     }
+    
+
+
+//     public void Noding(int data, int data2, int data3){
+//        Node n1 = new Node(data);
+//        head = n1;
+//        Node n2 = new Node(data2);
+//        Node n3 = new Node(data3);
+//        n1.next = n2;
+//        n2.next = n3;
+      
+//        Node curn = head;
+//        while ( curn != null){
+//          System.out.print(curn.data+" --> ");
+//          curn = curn.next;
+//        }
+
+//     }
+//     public static void main (String[] args){
+       
+//       Nodi rr = new Nodi();
+//       rr.Noding(20, 30, 40);
+
+//     }
+
+// }
+
+
+
+
+
+
+
+class Converting{
     Node head;
     Node tail;
     class Node{
-        String data;
-        Node next ;
-        Node(String data){
+        int data;
+        Node next;
+        Node(int data){
             this.data = data;
             this.next = null;
         }
     }
 
-/// Add at first element
 
-    public void add_First(String data){
-        Node new_node = new Node(data);
-        if (head == null){ // If no node exists it'll do then head node will be:
-           head = new_node; // Stores new created Node into the head node.
-           return; // and ends the function, as it's only one node 
-        }
-
-        new_node.next = head;// new_node's next took head's value started new new_node sequentially 
-
-        head = new_node; // In order to change the head of new node as in previous line we only passed the head's value into new_node's next 
-    }
-
-    public void add_Last(String data){
-        Node new_node = new Node(data);
-        if (head == null){ // If no node exists it'll do then head node will be:
-           head = new_node; // Stores new created Node into the head node.
-           return; // and ends the function, as it's only one node  
-        }
-
-        Node current = head; // Without this current node we will lose the head of the existing Linked List
-
-        while (current.next != null){ //For loop isn't possible as we don't know the length of the Linked List unless we calculate the size with another while loop
-
-             current = current.next; // Basically traversing the whole Linked List/node-to-node and assigning at current node until current node's next become null
-        }
-        current.next = new_node;
-
-    }
-
-    // Deleting the first element
-    public void del_first(){
-        if (head == null){ //for Corner case
-            System.out.println("This list is empty!");
-            return;
-        }
-
-        head = head.next; // If head takes previous head's next data the existing head's value will be gone
-    }
-
-    public void del_last()
-
-
-
-    public void print_List(){
+    public void arrToLL(int[] arr){
+        
         if (head == null){
-            System.out.println("Empty List.");
+            head = new Node(arr[0]);
+               // tail = head.next; ❌ // head.next doesn't exists here as head only have the array's first element as first node
         }
 
-        Node current = head;
-        while (current != null){
-            System.out.print(current.data+"--> ");
-            current = current.next;
+        tail = head;
+
+        for (int i = 1; i < arr.length; i++){  // ✅ i=1 because if we take i=0 then the node after head node will be the as arr[0]'s value which results same value in head and curn node. 
+
+            Node curn = new Node(arr[i]);
+            tail.next = curn;
+            tail = curn;
         }
-        System.out.println("Null Appeared!! ");
+        
+        int count = 0;
+        Node present = head;
+        while (present != null){
+            System.out.print(present.data+" --> ");
+            present = present.next;
+            count++;
+        }
+        System.out.print("NuLL ");
+        System.out.println("\nTotal Nodes: "+count);
+
     }
 
-
-    public static void main (String [] args){
-        LL xx = new LL();
-        xx.add_First("A");
-        xx.add_First("B");
-        xx.add_Last("Z");
-        xx.print_List();
+    public static void main(String[] args){
+        Converting xx = new Converting();
+        int[] arr = {10,20,30,40,50};
+        xx.arrToLL(arr);
     }
-
-    
-
 }
+
+
+
 
 
