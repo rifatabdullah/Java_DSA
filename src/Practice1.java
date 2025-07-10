@@ -548,22 +548,48 @@ class Converting{
             tail = curn;
         }
         
-        int count = 0;
+        
         Node present = head;
         while (present != null){
             System.out.print(present.data+" --> ");
             present = present.next;
-            count++;
+            
         }
         System.out.print("NuLL ");
-        System.out.println("\nTotal Nodes: "+count);
 
     }
+    
+    
+    public  Object counter(Node head, int idx){
+         int c = 0;
+        for(Node new_node=head; new_node != null; new_node=new_node.next){
+
+            if ( c == idx){
+                return new_node.data;
+            }
+            c++;
+            // after return else won't work so else's condition will be in the outside.
+        }
+        return null; // else's condition
+
+
+    } 
 
     public static void main(String[] args){
         Converting xx = new Converting();
         int[] arr = {10,20,30,40,50};
         xx.arrToLL(arr);
+        System.out.println();
+        int idx =2;
+        Object rr = xx.counter(xx.head, idx);
+        
+        if (rr != null){
+            System.out.println("At "+idx+" index, the value is "+rr);
+        }
+        else{
+            System.out.println("Invalid!!");
+        }
+
     }
 }
 
