@@ -565,7 +565,7 @@ class Converting{
         for(Node new_node=head; new_node != null; new_node=new_node.next){
 
             if ( c == idx){
-                return new_node.data;
+                return new_node.data;// to return a node's data we need object class.
             }
             c++;
             // after return else won't work so else's condition will be in the outside.
