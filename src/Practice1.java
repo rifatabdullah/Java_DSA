@@ -572,23 +572,42 @@ class Converting{
         }
         return null; // else's condition
 
+    }
+    
+    public Node nodeAt(Node head, int idx){
 
-    } 
+        if (idx < 0 ){
+            return null;
+        }
+
+        Node n = head;
+        int x = 0;
+        for (int i = 0; i<idx; i++){
+            n = n.next;
+        }
+        System.out.println("value for "+i+" index is: "+n.data);
+        return n;
+    }
 
     public static void main(String[] args){
         Converting xx = new Converting();
         int[] arr = {10,20,30,40,50};
+        System.out.println("\nArray to Linked List Function --");
         xx.arrToLL(arr);
+
+
         System.out.println();
         int idx =2;
         Object rr = xx.counter(xx.head, idx);
-        
+        System.out.println("\nIndexing Linked List element Function --");
         if (rr != null){
             System.out.println("At "+idx+" index, the value is "+rr);
         }
         else{
             System.out.println("Invalid!!");
         }
+        System.out.println("\nNodeAt Function --");
+        Node mm = xx.nodeAt(xx.head, 2);
 
     }
 }
