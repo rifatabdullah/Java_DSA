@@ -515,6 +515,29 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 
 
+// class insertion{
+//     Node head;
+//     Node tail;
+//     class Node{
+//         int data;
+//         Node next;
+//         Node(int data ){
+//             this.data = data;
+//             this.next = null;
+//         }
+
+
+
+//         public void insertion()
+//     }
+// }
+
+
+
+
+
+
+
 
 
 
@@ -536,12 +559,11 @@ class Converting{
         
         if (head == null){
             head = new Node(arr[0]);
-               // tail = head.next; ❌ // head.next doesn't exists here as head only have the array's first element as first node
         }
 
         tail = head;
 
-        for (int i = 1; i < arr.length; i++){  // ✅ i=1 because if we take i=0 then the node after head node will be the as arr[0]'s value which results same value in head and curn node. 
+        for (int i = 1; i < arr.length; i++){  // ✅ Earlier, we took head = arr[0], so if we took i = 0 then, 0th value will be again create a new node which will result to print the very first node two times.
 
             Node curn = new Node(arr[i]);
             tail.next = curn;
@@ -567,26 +589,151 @@ class Converting{
             if ( c == idx){
                 return new_node.data;// to return a node's data we need object class.
             }
-            c++;
-            // after return else won't work so else's condition will be in the outside.
+            else{
+                c++;
+            }
+            // after return, else won't work so else's condition will be in the outside.
         }
         return null; // else's condition
 
     }
+
+    public void Insertion(Node head, int elem, int idx){
+
+        int c = 0;
+        Node curn = head;
+        Node new_node = new Node(elem);
+        if ( curn == null){
+            head = new_node;
+            return;
+        }
+        while(curn != null){
+            if( c == idx - 1){
+                Node save_node1 = curn;
+                Node save_node2 = curn.next;
+                save_node1.next = new_node;
+                new_node.next = save_node2;
+            }
+            c++;
+            curn = curn.next;
+        }
+        Node present = head;
+         while (present != null){
+            System.out.print(present.data+" --> ");
+            present = present.next;
+            
+        }
+        System.out.print("NuLL ");
+    }
+
+
+    public void delete(Node head,int elem){
+        Node curn = head;
+        Node new_node = new Node(elem); 
+        int c = 0;
+        int new_c = 0;
+        while (curn != null){
+            if (new_node.data ! = curn.data){
+                  Node s2 = curn.next;
+                  curn = s2;
+            }
+            curn = curn.next;
+        }
+        Node present = head;
+         while (present != null){
+            System.out.print(present.data+" --> ");
+            present = present.next;
+            
+        }
+        System.out.print("NuLL ");
+
+    }
     
-    public Node nodeAt(Node head, int idx){
+public void nodeAt(Node head, int idx){
 
-        if (idx < 0 ){
-            return null;
+        Node curn = head;
+        if ( curn == null ){
+          return;
         }
 
-        Node n = head;
-        int x = 0;
-        for (int i = 0; i<idx; i++){
-            n = n.next;
+        int c = 0;
+
+        while (curn != null){
+            if ( c == idx ){
+                System.out.println("Desired value for index: "+idx+" is "+curn.data+"\n");
+            }
+            c++;
+            curn = curn.next;
         }
-        System.out.println("value for "+i+" index is: "+n.data);
-        return n;
+        
+
+        printLL(head);
+    }
+
+
+    public void insertion(Node head, int element, int idx){
+        Node curn = head;
+        int c = 0;
+        Node new_node = new Node(element);
+
+        while (curn != null){
+
+            if (c == idx-1){
+                Node save1 = curn;
+                Node save2 = curn.next;
+                save1.next = new_node;
+                new_node.next = save2;
+            }
+            c++;
+            curn = curn.next;
+        }
+        printLL(head);
+    }
+
+    public void insertion_new(Node head,int elm, int idx){
+        Node curn = head;
+        int c = 0;
+        Node new_node = new Node(elm);
+        Node prev = null;
+
+        while (curn != null){
+            if (c == idx){
+                prev.next = new_node;
+                new_node.next = curn;
+            }
+            c++;
+            prev = curn;
+            curn = curn.next;
+        }
+        printLL(head);
+    }
+
+    public void delete_val(Node head, int value){
+        Node curn = head;
+        Node prev = null;
+
+        while (curn != null){
+            if ( curn.data == value ){
+               prev.next = curn.next;
+               
+            }
+            prev = curn;
+            curn = curn.next;
+        }
+
+        printLL(head);
+       //ff 
+
+    }
+
+    public void printLL(Node head){
+        Node curn = head;
+
+        while (curn != null){
+            System.out.print(curn.data+" --> ");
+            curn = curn.next;
+        }
+        System.out.print(" NuLL");
     }
 
     public static void main(String[] args){
@@ -594,8 +741,6 @@ class Converting{
         int[] arr = {10,20,30,40,50};
         System.out.println("\nArray to Linked List Function --");
         xx.arrToLL(arr);
-
-
         System.out.println();
         int idx =2;
         Object rr = xx.counter(xx.head, idx);
@@ -607,7 +752,13 @@ class Converting{
             System.out.println("Invalid!!");
         }
         System.out.println("\nNodeAt Function --");
-        Node mm = xx.nodeAt(xx.head, 2);
+        xx.nodeAt(xx.head, 2);
+        System.out.println("\nInsertion --");
+        xx.insertion(xx.head, 99, 2);
+        System.out.println("\nInsertion_New --");
+        xx.insertion_new(xx.head, 101, 2);
+        System.out.println("\nDelete_Value -- ");
+        xx.delete_val(xx.head, 99);
 
     }
 }
