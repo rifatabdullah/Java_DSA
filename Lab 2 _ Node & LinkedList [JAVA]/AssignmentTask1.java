@@ -7,7 +7,10 @@ public class AssignmentTask1 {
     public static String checkSimilar( Node building1, Node building2 ){
 
           
-        Node head1 = building1.head;
+        Node head1 = building1;
+        Node head2 = building2;
+
+        
         
 
 
