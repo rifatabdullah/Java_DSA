@@ -629,11 +629,10 @@ class Converting{
 
     public void delete(Node head,int elem){
         Node curn = head;
-        Node new_node = new Node(elem); 
         int c = 0;
         int new_c = 0;
         while (curn != null){
-            if (new_node.data ! = curn.data){
+            if (curn.data != elem){
                   Node s2 = curn.next;
                   curn = s2;
             }
@@ -649,7 +648,7 @@ class Converting{
 
     }
     
-public void nodeAt(Node head, int idx){
+public void nodeAt(int idx){
 
         Node curn = head;
         if ( curn == null ){
@@ -669,6 +668,88 @@ public void nodeAt(Node head, int idx){
 
         printLL(head);
     }
+
+    // Get a Specific Node 
+
+    public Node get_Node(int idx){
+
+      int c = 0;
+      Node curn = head;
+
+      while (curn != null){
+        if (c == idx){
+            return curn;
+        }
+        c++;
+        curn = curn.next;
+      }
+      return null; // Kind of else condition of while loop 
+
+    }
+
+    public void del_idx(Node head, int idx){// With get_Node()
+
+        Node curn = head;
+        int c= 0;
+        Node prev = null;
+        if (idx == 0 & head != null){
+            head = head.next;
+            return;
+        }
+        while (curn != null){
+            if (c == idx){
+                prev = get_Node(idx - 1); // If idx 0, then it'll show Null Error as it'll go out of bound
+                prev.next = curn.next;
+
+            }
+            c++;
+            curn =curn.next;
+        }
+        printLL(head);
+    }
+
+    public void del_new(int idx){ // without get_Node()
+        if (idx == 0 & head != null){
+            head = head.next;
+            return;
+        }
+
+        Node curn = head;
+        int c = 0;
+
+        while (curn != null){
+            if (c == idx-1){
+                Node s1 = curn;
+                Node del = curn.next;
+                s1.next = del.next;
+            }
+            c++;
+            curn = curn.next;
+        }
+
+        printLL(head);
+
+    }
+
+    public void delete_val(Node head, int value){ // By prev only
+        Node curn = head;
+        Node prev = null;
+
+        while (curn != null){
+            if ( curn.data == value ){
+               prev.next = curn.next;
+               
+            }
+            prev = curn;
+            curn = curn.next;
+        }
+
+        printLL(head);
+       //ff 
+
+    }
+
+
 
 
     public void insertion(Node head, int element, int idx){
@@ -708,23 +789,39 @@ public void nodeAt(Node head, int idx){
         printLL(head);
     }
 
-    public void delete_val(Node head, int value){
-        Node curn = head;
-        Node prev = null;
 
-        while (curn != null){
-            if ( curn.data == value ){
-               prev.next = curn.next;
-               
-            }
-            prev = curn;
-            curn = curn.next;
+    // Reversing a list in place
+    public void reverseLL(Node head){
+        if (head == null || head.next == null){
+            return;
         }
 
+        Node prev = head;
+        Node curn = head.next;
+        Node next = curn.next;
+        while(curn != null){
+            next = curn.next; // next stores the Linked List afterwards curn node. that's how the afterward linked list don't get lost
+
+            curn.next = prev;
+            
+            //Updating
+            prev = curn;
+            curn = next;
+        }
+        head.next = null; // Cut off initial head's connection
+        
+        //🔰 How null becomes curn node after while loop?
+        // Ans: When curn becomes null the loop exits, so curn is null.
+
+        head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
+
         printLL(head);
-       //ff 
+
 
     }
+     
+
+
 
     public void printLL(Node head){
         Node curn = head;
@@ -752,13 +849,24 @@ public void nodeAt(Node head, int idx){
             System.out.println("Invalid!!");
         }
         System.out.println("\nNodeAt Function --");
-        xx.nodeAt(xx.head, 2);
+        xx.nodeAt( 2);
         System.out.println("\nInsertion --");
         xx.insertion(xx.head, 99, 2);
         System.out.println("\nInsertion_New --");
         xx.insertion_new(xx.head, 101, 2);
         System.out.println("\nDelete_Value -- ");
         xx.delete_val(xx.head, 99);
+
+        System.out.println("\nDel_Index -- ");
+        xx.del_idx(xx.head, 2);
+
+        System.out.println("\ndel_new -- ");
+        xx.del_new( 2);
+
+        System.out.println("\nRev -- ");
+        xx.reverseLL( xx.head);
+        
+        
 
     }
 }

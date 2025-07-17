@@ -7,9 +7,24 @@ public class AssignmentTask1 {
     public static String checkSimilar( Node building1, Node building2 ){
 
           
-        Node head1 = building1.head;
-        
+        Node n1 = building1;
+        Node n2 = building2;
 
+        while ( n1 != null && n2 !=null){
+
+            if ( n1.elem != n2.elem ){
+                return "Not Similiar";
+
+            }
+            n1 = n1.next;
+            n2 = n2.next;
+        }
+
+        if ( n1 != null || n2 != null){
+            return "Not Similar";
+        }
+
+        return "Similiar"; // If non is true above 
 
 
         //You're not suppose to create any new Linked List for this task
@@ -17,7 +32,6 @@ public class AssignmentTask1 {
         //TODO
 
         //Once you're ready to return the String delete the following line
-        return null;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
