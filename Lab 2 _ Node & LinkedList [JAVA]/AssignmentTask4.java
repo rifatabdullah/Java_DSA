@@ -7,7 +7,7 @@ public class AssignmentTask4{
         Node curn1 = head1.next;
         Node prev1 = head1;
         Node next1 = curn1.next;
-        int c = 0;
+        
         while (curn1 != null){
 
             next1 = curn1.next;
@@ -16,36 +16,39 @@ public class AssignmentTask4{
             // Update
             prev1 = curn1;
             curn1 = next1;
-            c++;
+            
         }
         head1.next = null;
         head1 = prev1;
+        
 
+
+
+        Node last = head1;
+        while (last.next != null){
+            last = last.next;
+        }
         Node curn2 = head2;
         Node curn3 = head3;
-        int cr = 0;
+
         while (curn2 != null && curn3 != null){
 
-            int sum = 0;
             int x = 0;
-            sum = (int) curn2.elem + (int)curn3.elem;
+            int sum = (int) curn2.elem + (int)curn3.elem;
             if ( sum >= 10){
                 x = sum%10;
             }
             else{
                 x = sum;
             }
-            cr++;
+            
             Node new_node = new Node(x);
-            Node curn11 = head1;
-            while (curn11 != null){
-              if (cr == c){
-                curn11.next = new_node;
-                
-              }
-              curn11 = curn11.next;
+            last.next = new_node;
+            last = new_node;
+          
 
-            }
+            curn2 = curn2.next;
+            curn3 = curn3.next;
 
         }
 
