@@ -813,11 +813,36 @@ public void nodeAt(int idx){
         //🔰 How null becomes curn node after while loop?
         // Ans: When curn becomes null the loop exits, so curn is null.
 
-        head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
+        this.head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
+
+        printLL(this.head);
+
+
+    }
+
+    public void Rev(Node head){
+
+        if (head == null || head.next == null){
+            return;
+        }
+
+        Node curn = head.next;
+        Node prev = head;
+        Node next = curn.next;
+
+        while(curn != null){
+            next = curn.next;
+            curn.next = prev;
+
+            //
+            prev = curn;
+            curn = next;
+        }
+        head.next = null;
+        // head.next = null;
+        head = prev;
 
         printLL(head);
-
-
     }
      
 
@@ -865,6 +890,12 @@ public void nodeAt(int idx){
 
         System.out.println("\nRev -- ");
         xx.reverseLL( xx.head);
+
+        
+        System.out.println("\nReving -- ");
+        xx.Rev( xx.head);
+
+
         
         
 
