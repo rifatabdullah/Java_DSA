@@ -540,8 +540,6 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 
 
-
-
 class Converting{
     Node head;
     Node tail;
@@ -802,7 +800,7 @@ public void nodeAt(int idx){
         while(curn != null){
             next = curn.next; // next stores the Linked List afterwards curn node. that's how the afterward linked list don't get lost
 
-            curn.next = prev;
+            curn.next = prev; // Mainly connecting curn with prev and reversing
             
             //Updating
             prev = curn;
@@ -813,15 +811,14 @@ public void nodeAt(int idx){
         //🔰 How null becomes curn node after while loop?
         // Ans: When curn becomes null the loop exits, so curn is null.
 
-<<<<<<< HEAD
         this.head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
 
         printLL(this.head);
-=======
+
         head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
 
         printLL(head);
->>>>>>> 94f8865e5806116d1b49419619f8942a46992bb4
+
 
 
     }
@@ -899,22 +896,146 @@ public void nodeAt(int idx){
 
         System.out.println("\nRev -- ");
         xx.reverseLL( xx.head);
-<<<<<<< HEAD
-
         
         System.out.println("\nReving -- ");
         xx.Rev( xx.head);
 
 
-=======
->>>>>>> 94f8865e5806116d1b49419619f8942a46992bb4
-        
-        
 
     }
 }
 
 
+
+
+
+class doublyLL{
+    Node head;
+    Node last;
+
+    class Node{
+        int data;
+        Node prev;
+        Node next;
+
+        Node(int data){
+            this.data = data;
+            this.prev = null;
+            this.next = null;
+
+        }
+    }
+    
+
+    public void Basic_DoubLY(int val1, int val2, int val3){
+       
+        Node n1 = new Node(val1);
+        Node n2 = new Node(val2);
+        Node n3 = new Node(val3);
+        head = n1;
+
+        n1.next = n2;
+        n2.prev = n1;
+        n2.next = n3;
+        n3.prev = n2;
+
+        System.out.println("Basic Doubly Linked List -->");
+        printDLL(head);
+
+    }
+
+    public void insert_End(int val){
+        Node new_node = new Node(val);
+
+        if (head == null){
+            head = new_node;
+            last = new_node;
+            return;
+        }
+
+        last.next = new_node;
+        new_node.prev = last;
+        last = new_node;
+
+        printDLL(head);
+    }
+    
+
+    public void insert_First(int val){
+        Node new_node = new Node(val);
+        if ( head == null){
+            head = new_node;
+            last = new_node;
+            return;
+        }
+
+        new_node.next = head;
+        head.prev = new_node;
+        head = new_node;
+
+        printDLL(head);
+
+
+    }
+
+   
+    public void printDLL(Node head){
+
+        if (head == null){
+            System.out.println("Null");
+            return;
+        }
+
+        Node curn = head;
+        while (curn != null){
+            System.out.print(curn.data+"--> ");
+            curn = curn.next;
+        }
+        System.out.print("NuLL");
+ 
+    }
+
+
+
+
+    public void printF(Node head){
+        if (head == null){
+            return;
+        }
+
+        Node curn = head;
+        System.out.print("Printing Doubly LL in Forward Direction: ");
+       
+        while (curn != null){
+            System.out.print(curn.data+" -->");
+            curn = curn.next;
+        }
+        System.out.print(" NuLL");
+    
+
+        Node curn2 = head;
+        System.out.print("Printing Doubly LL in Forward Direction: ");
+       
+        while (curn2 != null){
+            System.out.print(curn2.data+" -->");
+            curn2 = curn2.next;
+        }
+        System.out.print(" NuLL");
+    }
+
+
+
+
+    public static void main(String [] args){
+        doublyLL xx = new doublyLL();
+        xx.Basic_DoubLY(10, 20, 30);
+        
+        System.out.println("\nInsert at First: \n");
+        xx.insert_First(200);
+
+
+    }
+}
 
 
 
