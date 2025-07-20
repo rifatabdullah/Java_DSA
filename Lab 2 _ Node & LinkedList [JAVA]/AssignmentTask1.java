@@ -6,17 +6,13 @@ public class AssignmentTask1 {
     // After you're done coding  MUST SUBMIT this method
     public static String checkSimilar( Node building1, Node building2 ){
 
-          
-<<<<<<< HEAD
         Node n1 = building1;
         Node n2 = building2;
-=======
+
         Node head1 = building1;
         Node head2 = building2;
 
         
-        
->>>>>>> 94f8865e5806116d1b49419619f8942a46992bb4
 
         while ( n1 != null && n2 !=null){
 
