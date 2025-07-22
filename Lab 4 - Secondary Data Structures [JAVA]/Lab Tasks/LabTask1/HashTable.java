@@ -1,7 +1,7 @@
-/*You will have to complete the FruitNode Contrustor first
+/*You will have to complete the FruitNode Constructor first
  then within this class you only have to complete two methods
  hashFunction() and insert()
- the rest of the metods are already written
+ the rest of the methods are already written
  DO NOT TOUCH any other methods or codes*/
 public class HashTable {
 
