@@ -8,10 +8,18 @@ public class AssignmentTask1 {
 
         Node n1 = building1;
         Node n2 = building2;
+<<<<<<< HEAD
         Node head1 = building1;
         Node head2 = building2;
 
     
+=======
+
+        Node head1 = building1;
+        Node head2 = building2;
+
+        
+>>>>>>> 4244f4567366834497a323f7e2c3ced310d85cda
 
         while ( n1 != null && n2 !=null){
 
