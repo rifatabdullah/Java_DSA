@@ -5,9 +5,16 @@ public class FruitNode {
     //the second index should contain the price of the fruit
     Object[] fruit = new Object[2];
     FruitNode next;
+    String name;
+    Integer price;
 
     public FruitNode(String name, Integer price){
-        // TO DO
+        this.name = name;
+        this.price = price;
+        this.next = null;
+        this.fruit[0] = name;
+        this.fruit[1] = price;
+        
     }
     
 }
