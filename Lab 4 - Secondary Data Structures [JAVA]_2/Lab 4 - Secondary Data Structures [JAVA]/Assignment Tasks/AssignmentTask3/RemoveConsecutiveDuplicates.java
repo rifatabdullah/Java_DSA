@@ -3,9 +3,45 @@ public class RemoveConsecutiveDuplicates{
     // You have to write this method
     // YOU MUST SUBMIT THIS METHOD
     public static String removeConsecDups(String word){
-	// TODO
-	// You MUST create a LinkedListQueue Object to solve this task
-	return null; //remove this line once you're ready
+
+        LinkedListQueue q = new LinkedListQueue();
+        char[] wArr = new char[word.length()];
+
+        for (int i = 0; i< word.length(); i++){
+            wArr[i] = word.charAt(i);
+            q.enqueue(wArr[i]);
+        }
+
+        char[] x = new char[word.length()];
+        int idx =0;
+        char ch = ' ';
+        boolean first = true;
+
+        while (!q.isEmpty()){
+            Object deque = q.dequeue();
+            char curn = (char) deque;
+
+            if (first == true || curn != ch){
+                x[idx] = curn;
+                idx++;
+            }
+
+            ch = curn;
+            first = false;
+        }
+
+        char[] last = new char[idx];
+        for (int i =0; i < last.length; i++){
+            last[i] = x[i];
+        }
+
+        String st = "";
+        for (int i=0; i < last.length; i++){
+            st += last[i];
+        }
+
+        return st;
+
     }
     
     //DO NOT CHANGE and DO NOT SUBMIT THIS METHOD

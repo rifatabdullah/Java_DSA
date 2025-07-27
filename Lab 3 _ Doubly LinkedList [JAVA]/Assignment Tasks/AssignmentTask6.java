@@ -39,10 +39,6 @@ public class AssignmentTask6 {
         n2 = next2;
        }
 
-
-
-
-
     }
 
     //DO NOT SUBMIT THE DRIVER CODE BELOW

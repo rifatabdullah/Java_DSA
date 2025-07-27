@@ -4,15 +4,18 @@ public class LabTask1 {
     // No need to submit this task
     public static Boolean assembleCongaLine(Node head){
         
-        //You're not suppose to create any new Linked List for this task
+        Node curn = head;
+        Node next = head.next;
+        boolean flag = true;
+        while (curn != null && next != null) {
+            if ((Integer) curn.elem > (Integer) next.elem ){
+                return false;
+            }
+            curn = curn.next;
+            next = next.next;
+        }
 
-        //TODO
-        //Hint: the Node elements are actually Object, you can type cast them
-        //      into int or Integer like the following:
-        //        (int)n.elem  or  (Integer)n.elem
-        
-        //When you're ready to return the boolean remove the following line
-        return null;
+        return true;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB

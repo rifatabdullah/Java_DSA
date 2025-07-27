@@ -540,506 +540,547 @@ class Dog extends Animal	--  Defines Dog as a subclass of Animal  ||	✅ That wo
 
 
 
-// class Converting{
-//     Node head;
-//     Node tail;
-//     class Node{
-//         int data;
-//         Node next;
-//         Node(int data){
-//             this.data = data;
-//             this.next = null;
-//         }
-//     }
+class Converting{
+    Node head;
+    Node tail;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
 
 
-//     public void arrToLL(int[] arr){
+    public void arrToLL(int[] arr){
         
-//         if (head == null){
-//             head = new Node(arr[0]);
-//         }
+        if (head == null){
+            head = new Node(arr[0]);
+        }
 
-//         tail = head;
+        tail = head;
 
-//         for (int i = 1; i < arr.length; i++){  // ✅ Earlier, we took head = arr[0], so if we took i = 0 then, 0th value will be again create a new node which will result to print the very first node two times.
+        for (int i = 1; i < arr.length; i++){  // ✅ Earlier, we took head = arr[0], so if we took i = 0 then, 0th value will be again create a new node which will result to print the very first node two times.
 
-//             Node curn = new Node(arr[i]);
-//             tail.next = curn;
-//             tail = curn;
-//         }
+            Node curn = new Node(arr[i]);
+            tail.next = curn;
+            tail = curn;
+        }
         
         
-//         Node present = head;
-//         while (present != null){
-//             System.out.print(present.data+" --> ");
-//             present = present.next;
+        Node present = head;
+        while (present != null){
+            System.out.print(present.data+" --> ");
+            present = present.next;
             
-//         }
-//         System.out.print("NuLL ");
+        }
+        System.out.print("NuLL ");
 
-//     }
+    }
     
     
-//     public  Object counter(Node head, int idx){
-//          int c = 0;
-//         for(Node new_node=head; new_node != null; new_node=new_node.next){
+    public  Object counter(Node head, int idx){
+         int c = 0;
+        for(Node new_node=head; new_node != null; new_node=new_node.next){
 
-//             if ( c == idx){
-//                 return new_node.data;// to return a node's data we need object class.
-//             }
-//             else{
-//                 c++;
-//             }
-//             // after return, else won't work so else's condition will be in the outside.
-//         }
-//         return null; // else's condition
+            if ( c == idx){
+                return new_node.data;// to return a node's data we need object class.
+            }
+            else{
+                c++;
+            }
+            // after return, else won't work so else's condition will be in the outside.
+        }
+        return null; // else's condition
 
-//     }
+    }
 
-//     public void Insertion(Node head, int elem, int idx){
+    public void Insertion(Node head, int elem, int idx){
 
-//         int c = 0;
-//         Node curn = head;
-//         Node new_node = new Node(elem);
-//         if ( curn == null){
-//             head = new_node;
-//             return;
-//         }
-//         while(curn != null){
-//             if( c == idx - 1){
-//                 Node save_node1 = curn;
-//                 Node save_node2 = curn.next;
-//                 save_node1.next = new_node;
-//                 new_node.next = save_node2;
-//             }
-//             c++;
-//             curn = curn.next;
-//         }
-//         Node present = head;
-//          while (present != null){
-//             System.out.print(present.data+" --> ");
-//             present = present.next;
+        int c = 0;
+        Node curn = head;
+        Node new_node = new Node(elem);
+        if ( curn == null){
+            head = new_node;
+            return;
+        }
+        while(curn != null){
+            if( c == idx - 1){
+                Node save_node1 = curn;
+                Node save_node2 = curn.next;
+                save_node1.next = new_node;
+                new_node.next = save_node2;
+            }
+            c++;
+            curn = curn.next;
+        }
+        Node present = head;
+         while (present != null){
+            System.out.print(present.data+" --> ");
+            present = present.next;
             
-//         }
-//         System.out.print("NuLL ");
-//     }
+        }
+        System.out.print("NuLL ");
+    }
 
 
-//     public void delete(Node head,int elem){
-//         Node curn = head;
-//         int c = 0;
-//         int new_c = 0;
-//         while (curn != null){
-//             if (curn.data != elem){
-//                   Node s2 = curn.next;
-//                   curn = s2;
-//             }
-//             curn = curn.next;
-//         }
-//         Node present = head;
-//          while (present != null){
-//             System.out.print(present.data+" --> ");
-//             present = present.next;
+    public void delete(Node head,int elem){
+        Node curn = head;
+        int c = 0;
+        int new_c = 0;
+        while (curn != null){
+            if (curn.data != elem){
+                  Node s2 = curn.next;
+                  curn = s2;
+            }
+            curn = curn.next;
+        }
+        Node present = head;
+         while (present != null){
+            System.out.print(present.data+" --> ");
+            present = present.next;
             
-//         }
-//         System.out.print("NuLL ");
+        }
+        System.out.print("NuLL ");
 
-//     }
+    }
     
-// public void nodeAt(int idx){
+public void nodeAt(int idx){
 
-//         Node curn = head;
-//         if ( curn == null ){
-//           return;
-//         }
+        Node curn = head;
+        if ( curn == null ){
+          return;
+        }
 
-//         int c = 0;
+        int c = 0;
 
-//         while (curn != null){
-//             if ( c == idx ){
-//                 System.out.println("Desired value for index: "+idx+" is "+curn.data+"\n");
-//             }
-//             c++;
-//             curn = curn.next;
-//         }
+        while (curn != null){
+            if ( c == idx ){
+                System.out.println("Desired value for index: "+idx+" is "+curn.data+"\n");
+            }
+            c++;
+            curn = curn.next;
+        }
         
 
-//         printLL(head);
-//     }
+        printLL(head);
+    }
 
-//     // Get a Specific Node 
+    // Get a Specific Node 
 
-//     public Node get_Node(int idx){
+    public Node get_Node(int idx){
 
-//       int c = 0;
-//       Node curn = head;
+      int c = 0;
+      Node curn = head;
 
-//       while (curn != null){
-//         if (c == idx){
-//             return curn;
-//         }
-//         c++;
-//         curn = curn.next;
-//       }
-//       return null; // Kind of else condition of while loop 
+      while (curn != null){
+        if (c == idx){
+            return curn;
+        }
+        c++;
+        curn = curn.next;
+      }
+      return null; // Kind of else condition of while loop 
 
-//     }
+    }
 
-//     public void del_idx(Node head, int idx){// With get_Node()
+    public void del_idx(Node head, int idx){// With get_Node()
 
-//         Node curn = head;
-//         int c= 0;
-//         Node prev = null;
-//         if (idx == 0 & head != null){
-//             head = head.next;
-//             return;
-//         }
-//         while (curn != null){
-//             if (c == idx){
-//                 prev = get_Node(idx - 1); // If idx 0, then it'll show Null Error as it'll go out of bound
-//                 prev.next = curn.next;
+        Node curn = head;
+        int c= 0;
+        Node prev = null;
+        if (idx == 0 & head != null){
+            head = head.next;
+            return;
+        }
+        while (curn != null){
+            if (c == idx){
+                prev = get_Node(idx - 1); // If idx 0, then it'll show Null Error as it'll go out of bound
+                prev.next = curn.next;
 
-//             }
-//             c++;
-//             curn =curn.next;
-//         }
-//         printLL(head);
-//     }
+            }
+            c++;
+            curn =curn.next;
+        }
+        printLL(head);
+    }
 
-//     public void del_new(int idx){ // without get_Node()
-//         if (idx == 0 & head != null){
-//             head = head.next;
-//             return;
-//         }
+    public void del_new(int idx){ // without get_Node()
+        if (idx == 0 & head != null){
+            head = head.next;
+            return;
+        }
 
-//         Node curn = head;
-//         int c = 0;
+        Node curn = head;
+        int c = 0;
 
-//         while (curn != null){
-//             if (c == idx-1){
-//                 Node s1 = curn;
-//                 Node del = curn.next;
-//                 s1.next = del.next;
-//             }
-//             c++;
-//             curn = curn.next;
-//         }
+        while (curn != null){
+            if (c == idx-1){
+                Node s1 = curn;
+                Node del = curn.next;
+                s1.next = del.next;
+            }
+            c++;
+            curn = curn.next;
+        }
 
-//         printLL(head);
+        printLL(head);
 
-//     }
+    }
 
-//     public void delete_val(Node head, int value){ // By prev only
-//         Node curn = head;
-//         Node prev = null;
+    public void delete_val(Node head, int value){ // By prev only
+        Node curn = head;
+        Node prev = null;
 
-//         while (curn != null){
-//             if ( curn.data == value ){
-//                prev.next = curn.next;
+        while (curn != null){
+            if ( curn.data == value ){
+               prev.next = curn.next;
                
-//             }
-//             prev = curn;
-//             curn = curn.next;
-//         }
+            }
+            prev = curn;
+            curn = curn.next;
+        }
 
-//         printLL(head);
-//        //ff 
+        printLL(head);
+       //ff 
 
-//     }
-
-
+    }
 
 
-//     public void insertion(Node head, int element, int idx){
-//         Node curn = head;
-//         int c = 0;
-//         Node new_node = new Node(element);
-
-//         while (curn != null){
-
-//             if (c == idx-1){
-//                 Node save1 = curn;
-//                 Node save2 = curn.next;
-//                 save1.next = new_node;
-//                 new_node.next = save2;
-//             }
-//             c++;
-//             curn = curn.next;
-//         }
-//         printLL(head);
-//     }
-
-//     public void insertion_new(Node head,int elm, int idx){
-//         Node curn = head;
-//         int c = 0;
-//         Node new_node = new Node(elm);
-//         Node prev = null;
-
-//         while (curn != null){
-//             if (c == idx){
-//                 prev.next = new_node;
-//                 new_node.next = curn;
-//             }
-//             c++;
-//             prev = curn;
-//             curn = curn.next;
-//         }
-//         printLL(head);
-//     }
 
 
-//     // Reversing a list in place
-//     public void reverseLL(Node head){
-//         if (head == null || head.next == null){
-//             return;
-//         }
+    public void insertion(Node head, int element, int idx){
+        Node curn = head;
+        int c = 0;
+        Node new_node = new Node(element);
 
-//         Node prev = head;
-//         Node curn = head.next;
-//         Node next = curn.next;
-//         while(curn != null){
-//             next = curn.next; // next stores the Linked List afterwards curn node. that's how the afterward linked list don't get lost
+        while (curn != null){
 
-//             curn.next = prev; // Mainly connecting curn with prev and reversing
+            if (c == idx-1){
+                Node save1 = curn;
+                Node save2 = curn.next;
+                save1.next = new_node;
+                new_node.next = save2;
+            }
+            c++;
+            curn = curn.next;
+        }
+        printLL(head);
+    }
+
+    public void insertion_new(Node head,int elm, int idx){
+        Node curn = head;
+        int c = 0;
+        Node new_node = new Node(elm);
+        Node prev = null;
+
+        while (curn != null){
+            if (c == idx){
+                prev.next = new_node;
+                new_node.next = curn;
+            }
+            c++;
+            prev = curn;
+            curn = curn.next;
+        }
+        printLL(head);
+    }
+
+
+    // Reversing a list in place
+    public void reverseLL(Node head){
+        if (head == null || head.next == null){
+            return;
+        }
+
+        Node prev = head;
+        Node curn = head.next;
+        Node next = curn.next;
+        while(curn != null){
+            next = curn.next; // next stores the Linked List afterwards curn node. that's how the afterward linked list don't get lost
+
+            curn.next = prev; // Mainly connecting curn with prev and reversing
             
-//             //Updating
-//             prev = curn;
-//             curn = next;
-//         }
-//         head.next = null; // Cut off initial head's connection
+            //Updating
+            prev = curn;
+            curn = next;
+        }
+        head.next = null; // Cut off initial head's connection
         
-//         //🔰 How null becomes curn node after while loop?
-//         // Ans: When curn becomes null the loop exits, so curn is null.
+        //🔰 How null becomes curn node after while loop?
+        // Ans: When curn becomes null the loop exits, so curn is null.
 
-//         this.head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
+        this.head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
 
-//         printLL(this.head);
+        printLL(this.head);
 
-//         head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
+        head = prev; // At last curn will be null so prev will be the first node and head. Prev became new head
 
-//         printLL(head);
+        printLL(head);
 
 
 
-//     }
+    }
      
 
 
 
-//     public void Rev(Node head){
+    public void Rev(Node head){
 
-//         if (head == null || head.next == null){
-//             return;
-//         }
+        if (head == null || head.next == null){
+            return;
+        }
 
-//         Node curn = head.next;
-//         Node prev = head;
-//         Node next = curn.next;
+        Node curn = head.next;
+        Node prev = head;
+        Node next = curn.next;
 
-//         while(curn != null){
-//             next = curn.next;
-//             curn.next = prev;
+        while(curn != null){
+            next = curn.next;
+            curn.next = prev;
 
-//             //
-//             prev = curn;
-//             curn = next;
-//         }
-//         head.next = null;
-//         // head.next = null;
-//         head = prev;
+            //
+            prev = curn;
+            curn = next;
+        }
+        head.next = null;
+        // head.next = null;
+        head = prev;
 
-//         printLL(head);
-//     }
+        printLL(head);
+    }
      
 
+    public Node rotateRight(int k){
 
+        if (head == null && k == 0 ){
+            return head;
+        }
 
-//     public void printLL(Node head){
-//         Node curn = head;
+        int c = 1;
+        Node curn = head;
+        while (curn.next != null){
+            c++;
+            curn = curn.next;
+        }
+        curn.next = head;
 
-//         while (curn != null){
-//             System.out.print(curn.data+" --> ");
-//             curn = curn.next;
-//         }
-//         System.out.print(" NuLL");
-//     }
-
-//     public static void main(String[] args){
-//         Converting xx = new Converting();
-//         int[] arr = {10,20,30,40,50};
-//         System.out.println("\nArray to Linked List Function --");
-//         xx.arrToLL(arr);
-//         System.out.println();
-//         int idx =2;
-//         Object rr = xx.counter(xx.head, idx);
-//         System.out.println("\nIndexing Linked List element Function --");
-//         if (rr != null){
-//             System.out.println("At "+idx+" index, the value is "+rr);
-//         }
-//         else{
-//             System.out.println("Invalid!!");
-//         }
-//         System.out.println("\nNodeAt Function --");
-//         xx.nodeAt( 2);
-//         System.out.println("\nInsertion --");
-//         xx.insertion(xx.head, 99, 2);
-//         System.out.println("\nInsertion_New --");
-//         xx.insertion_new(xx.head, 101, 2);
-//         System.out.println("\nDelete_Value -- ");
-//         xx.delete_val(xx.head, 99);
-
-//         System.out.println("\nDel_Index -- ");
-//         xx.del_idx(xx.head, 2);
-
-//         System.out.println("\ndel_new -- ");
-//         xx.del_new( 2);
-
-//         System.out.println("\nRev -- ");
-//         xx.reverseLL( xx.head);
+        k = k % c;
+        int len = c - k;
+        if (k == 0){
+            return head;
+        }
         
-//         System.out.println("\nReving -- ");
-//         xx.Rev( xx.head);
+
+        Node cn = head;
+        while ( len > 1 ){
+            cn = cn.next;
+            len--;
+        }
+        Node new_Head = cn.next;
+        cn.next = null;
+        return new_Head;
+
+    }
 
 
 
-//     }
-// }
+    public void printLL(Node head){
+        Node curn = head;
+
+        while (curn != null){
+            System.out.print(curn.data+" --> ");
+            curn = curn.next;
+        }
+        System.out.print(" NuLL");
+    }
+
+    public static void main(String[] args){
+        Converting xx = new Converting();
+        int[] arr = {10,20,30,40,50};
+        System.out.println("\nArray to Linked List Function --");
+        xx.arrToLL(arr);
+        System.out.println();
+        int idx =2;
+        Object rr = xx.counter(xx.head, idx);
+        System.out.println("\nIndexing Linked List element Function --");
+        if (rr != null){
+            System.out.println("At "+idx+" index, the value is "+rr);
+        }
+        else{
+            System.out.println("Invalid!!");
+        }
+        System.out.println("\nNodeAt Function --");
+        xx.nodeAt( 2);
+        System.out.println("\nInsertion --");
+        xx.insertion(xx.head, 99, 2);
+        System.out.println("\nInsertion_New --");
+        xx.insertion_new(xx.head, 101, 2);
+        System.out.println("\nDelete_Value -- ");
+        xx.delete_val(xx.head, 99);
+
+        System.out.println("\nDel_Index -- ");
+        xx.del_idx(xx.head, 2);
+
+        System.out.println("\ndel_new -- ");
+        xx.del_new( 2);
+
+        System.out.println("\nRev -- ");
+        xx.reverseLL( xx.head);
+        
+        System.out.println("\nReving -- ");
+        xx.Rev( xx.head);
+
+        System.out.println("\nRotating -- ");
+        xx.rotateRight(2);
+
+
+
+    }
+}
 
 
 
 
 
-// class doublyLL{
-//     Node head;
-//     Node last;
+class doublyLL{
+    Node head;
+    Node last;
 
-//     class Node{
-//         int data;
-//         Node prev;
-//         Node next;
+    class Node{
+        int data;
+        Node prev;
+        Node next;
 
-//         Node(int data){
-//             this.data = data;
-//             this.prev = null;
-//             this.next = null;
+        Node(int data){
+            this.data = data;
+            this.prev = null;
+            this.next = null;
 
-//         }
-//     }
+        }
+    }
     
 
-//     public void Basic_DoubLY(int val1, int val2, int val3){
+    public void Basic_DoubLY(int val1, int val2, int val3){
        
-//         Node n1 = new Node(val1);
-//         Node n2 = new Node(val2);
-//         Node n3 = new Node(val3);
-//         head = n1;
+        Node n1 = new Node(val1);
+        Node n2 = new Node(val2);
+        Node n3 = new Node(val3);
+        head = n1;
 
-//         n1.next = n2;
-//         n2.prev = n1;
-//         n2.next = n3;
-//         n3.prev = n2;
+        n1.next = n2;
+        n2.prev = n1;
+        n2.next = n3;
+        n3.prev = n2;
+        last = n3;
 
-//         System.out.println("Basic Doubly Linked List -->");
-//         printDLL(head);
+        System.out.println("Basic Doubly Linked List -->");
+        printDLL(head);
 
-//     }
+    }
 
-//     public void insert_End(int val){
-//         Node new_node = new Node(val);
+    public void insert_End(int val){
+        Node new_node = new Node(val);
 
-//         if (head == null){
-//             head = new_node;
-//             last = new_node;
-//             return;
-//         }
+        if (head == null){
+            head = new_node;
+            last = new_node;
+            return;
+        }
 
-//         last.next = new_node;
-//         new_node.prev = last;
-//         last = new_node;
+        last.next = new_node;
+        new_node.prev = last;
+        last = new_node;
 
-//         printDLL(head);
-//     }
+        printDLL(head);
+    }
     
 
-//     public void insert_First(int val){
-//         Node new_node = new Node(val);
-//         if ( head == null){
-//             head = new_node;
-//             last = new_node;
-//             return;
-//         }
+    public void insert_First(int val){
+        Node new_node = new Node(val);
+        if ( head == null){
+            head = new_node;
+            last = new_node;
+            return;
+        }
 
-//         new_node.next = head;
-//         head.prev = new_node;
-//         head = new_node;
+        new_node.next = head;
+        head.prev = new_node;
+        head = new_node;
 
-//         printDLL(head);
+        printDLL(head);
+        System.out.println("Back 'N Forth:");
+        printF(head);
 
 
-//     }
+    }
 
    
-//     public void printDLL(Node head){
+    public void printDLL(Node head){
 
-//         if (head == null){
-//             System.out.println("Null");
-//             return;
-//         }
+        if (head == null){
+            System.out.println("Null");
+            return;
+        }
 
-//         Node curn = head;
-//         while (curn != null){
-//             System.out.print(curn.data+"--> ");
-//             curn = curn.next;
-//         }
-//         System.out.print("NuLL");
+        Node curn = head;
+        while (curn != null){
+            System.out.print(curn.data+"--> ");
+            curn = curn.next;
+        }
+        System.out.print("NuLL");
  
-//     }
+    }
 
 
 
 
-//     public void printF(Node head){
-//         if (head == null){
-//             return;
-//         }
+    public void printF(Node head){
+        if (head == null){
+            return;
+        }
 
-//         Node curn = head;
-//         System.out.print("Printing Doubly LL in Forward Direction: ");
+        Node curn = head;
+        System.out.print("Printing Doubly LL in Forward Direction: ");
        
-//         while (curn != null){
-//             System.out.print(curn.data+" -->");
-//             curn = curn.next;
-//         }
-//         System.out.print(" NuLL");
-    
+        while (curn != null){
+            System.out.print(curn.data+" -->");
+            curn = curn.next;
+        }
+        System.out.print(" NuLL");
+        System.out.println();
 
-//         Node curn2 = head;
-//         System.out.print("Printing Doubly LL in Forward Direction: ");
+        Node curn2 = last;
+        System.out.print("Printing Doubly LL in Backward Direction: ");
        
-//         while (curn2 != null){
-//             System.out.print(curn2.data+" -->");
-//             curn2 = curn2.next;
-//         }
-//         System.out.print(" NuLL");
-//     }
+        while (curn2 != null){
+            System.out.print(curn2.data+" -->");
+            curn2 = curn2.prev;
+        }
+        System.out.print(" NuLL");
+        System.out.println();
+    }
+
+  
 
 
 
 
-//     public static void main(String [] args){
-//         doublyLL xx = new doublyLL();
-//         xx.Basic_DoubLY(10, 20, 30);
+    public static void main(String [] args){
+        doublyLL xx = new doublyLL();
+        xx.Basic_DoubLY(10, 20, 30);
         
-//         System.out.println("\nInsert at First: \n");
-//         xx.insert_First(200);
+        System.out.println("\nInsert at First: \n");
+        xx.insert_First(200);
 
 
-//     }
-// }
+    }
+}
 
 
 
-//// Always use hashT[index] - for adding or updating values. But while traversing hashtable have to use Node curn as it doesn't change the actual value of Hash Table..
+//// Always use hashT[index] - for adding or updating values. But while traversing hashtable have to use "Node curn" as it doesn't change the actual value of Hash Table..
 
 
 

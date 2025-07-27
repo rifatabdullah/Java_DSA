@@ -15,12 +15,10 @@ public class AssignmentTask5 {
             if ((int) curn.elem % 2 != 0){
                 total += (int) curn.elem;
                 prev.next = curn.next;
-                curn = curn.next;
+                // curn = curn.next;
             }
-            else{
-                prev = curn;
-                curn = curn.next;
-            }
+            prev = curn;
+            curn = curn.next;  
         }
 
         Node new_node = new Node(total);
