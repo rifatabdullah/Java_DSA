@@ -1165,3 +1165,249 @@ class Hash{
         xx.search("Java");
     }
 }
+
+
+///// Recursion
+
+
+class recursion{
+
+    // Printing in reverse order 
+    public static void printR(int n){
+        if (n==0){
+            return;
+        }
+        System.out.println(n);
+        printR(n-1);
+    }
+
+    //printing in forward order
+    public static void printF(int m, int range){
+        if(m > range){
+            return;
+        }
+        System.out.println(m);
+        printF(m+1, range);
+    }
+
+    //Printing N th numbers sum
+
+    public static void Nsum(int s, int e, int t) {
+
+        if (s > e){
+            System.out.println(t);
+            return;
+        }
+        t += s;
+        Nsum(s+1, e, t);
+        System.out.println(s);// while returning this line will keep printing
+    }
+
+    public static void main (String[] args){
+        System.out.println("Forward Order: ");
+        int m = 1;
+        int range = 5;
+        printF(m, range);
+
+        System.out.println("-------------------");
+        
+        System.out.println("Reverse Order: ");
+        int n = 5;
+        printR(n);
+
+        System.out.println();
+        System.out.println("Printing Total: \nf");
+        int s = 1;
+        int e = 5;
+        int t = 0;
+        Nsum(s, e, t);
+
+    }
+}
+
+
+
+//// Binary Tree
+
+
+class BT{
+    public static class Node{
+        String elem;
+        Node left;
+        Node right;
+        Node(String elem){
+            this.elem = elem;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+    public void pre(Node root){
+
+        if (root == null){
+            return;
+        }
+
+        System.out.print(root.elem+" ");
+        pre(root.left);
+        pre(root.right);
+    }
+
+    public void in_order(Node root){
+        if (root == null){
+            return;
+        }
+        
+        in_order(root.left);
+        System.out.print(root.elem+" ");
+        in_order(root.right);
+    }
+
+    public void post_order(Node root){
+        if (root == null){
+            return;
+        }
+
+        post_order(root.left);
+        post_order(root.right);
+        System.out.print(root.elem+" ");
+    }
+
+    // Level Order Printing 
+
+    public static void main(String [] args){
+        Node root = new Node("A");
+        Node n1 = new Node("B");
+        Node n2 = new Node("C");
+        Node n3 = new Node("D");
+        Node n4 = new Node("E");
+        Node n5 = new Node("F");
+        Node n6 = new Node("G");
+        
+        root.left = n1;
+        root.right = n2;
+
+        n1.left = n3;
+        n1.right = n4;
+        
+        n2.left = n5;
+        n2.right = n6;
+
+        BT xx = new BT();
+        System.out.println("\nPre_Order Printing: ");
+        xx.pre(root);
+        System.out.println("\nIn_Order Printing: ");
+        xx.in_order(root);
+        System.out.println("\nPost_Order Printing: ");
+        xx.post_order(root);
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// Task - 03
+
+
+public class Balance{
+    public static int[] balancing (int m, int[] tasks){
+        int[] mL = new int[m];
+        int[] aa = new int[tasks.length];
+
+        for (int i = 0; i < tasks.length;i++){
+            int min = 0;
+
+            for (int j = 0; j < m; j++){
+                if (mL[j] < mL[min]){
+                    min = j;
+                }
+            }
+
+            mL[min] += tasks[i];
+            aa[i] = min;
+        }
+
+        return aa;
+    }
+
+
+    public static void pArr(int[] ar){
+        System.out.print("[");
+
+        for (int a = 0; a < ar.length; a++){
+            System.out.print(ar[a]);
+            if (a < ar.length - 1){
+                System.out.print(" ");
+            }
+        }
+        System.out.print("]");
+    }
+
+    public static void main(String [] args){
+        int a = 4;
+        int[] b = {2,4,7,1,6};
+
+        int [] x = balancing(a, b);
+        int[] c = new int[a];
+        for (int i = 0; i < b.length; i++){
+            c[x[i]] += b[i];
+        }
+        pArr(x);
+        pArr(c);
+
+        
+
+    }
+
+}
+
+
+
+// Task - 04 
+
+public class T4{
+    public static int[] T4(int[] nums, int k){
+        MAx_heap = new MAx_heap(nums.lenght);
+        int[] re = new int[k];
+
+        for (int i = 0; i < nums.length; i++){
+            Heap.insertion(nums[i]);
+        }
+
+        for (int i = 0; i < k; i++){
+            re[i] = Heap.max();
+        }
+        return re;
+    }
+
+     public static void pArr(int[] ar){
+        System.out.print("[");
+
+        for (int a = 0; a < ar.length; a++){
+            System.out.print(ar[a]);
+            if (a < ar.length - 1){
+                System.out.print(" ");
+            }
+        }
+        System.out.print("]");
+    }
+
+    public static void main(String [] args){
+        int[] a = {4,10,2,8,6,7};
+        int b = 3;
+
+        int[] nArr = T4(a,b);
+        pArr(nArr);
+    }
+}
