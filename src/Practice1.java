@@ -1165,3 +1165,62 @@ class Hash{
         xx.search("Java");
     }
 }
+
+
+
+
+
+class recursion{
+
+    // Printing in reverse order 
+    public static void printR(int n){
+        if (n==0){
+            return;
+        }
+        System.out.println(n);
+        printR(n-1);
+    }
+
+    //printing in forward order
+    public static void printF(int m, int range){
+        if(m > range){
+            return;
+        }
+        System.out.println(m);
+        printF(m+1, range);
+    }
+
+    //Printing N th numbers sum
+
+    public static void Nsum(int s, int e, int t) {
+
+        if (s > e){
+            System.out.println(t);
+            return;
+        }
+        t += s;
+        Nsum(s+1, e, t);
+        System.out.println(s);// while returning this line will keep printing
+    }
+
+    public static void main (String[] args){
+        System.out.println("Forward Order: ");
+        int m = 1;
+        int range = 5;
+        printF(m, range);
+
+        System.out.println("-------------------");
+        
+        System.out.println("Reverse Order: ");
+        int n = 5;
+        printR(n);
+
+        System.out.println();
+        System.out.println("Printing Total: \nf");
+        int s = 1;
+        int e = 5;
+        int t = 0;
+        Nsum(s, e, t);
+
+    }
+}
