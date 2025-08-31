@@ -1167,11 +1167,7 @@ class Hash{
 }
 
 
-<<<<<<< HEAD
 ///// Recursion
-=======
-
->>>>>>> d8112220490b31429f23a288f68134d7004ab64b
 
 
 class recursion{
@@ -1227,7 +1223,6 @@ class recursion{
         Nsum(s, e, t);
 
     }
-<<<<<<< HEAD
 }
 
 
@@ -1379,7 +1374,7 @@ public class Balance{
 
 
 
-// Task - 04 
+// Task - 04 //
 
 public class T4{
     public static int[] T4(int[] nums, int k){
@@ -1415,6 +1410,16 @@ public class T4{
         int[] nArr = T4(a,b);
         pArr(nArr);
     }
-=======
->>>>>>> d8112220490b31429f23a288f68134d7004ab64b
+
+
 }
+
+
+
+    public static void main(String [] args){
+        int[] a = {4,10,2,8,6,7};
+        int b = 3;
+
+        int[] nArr = T4(a,b);
+        pArr(nArr);
+    }
