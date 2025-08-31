@@ -12,19 +12,19 @@ public class Task5 {
         if (root == null){
             return 0;
         }
-        int l = SumT(root.left);
-        int r = SumT(root.right);
+        int l = SubtractSummationx(root.left);
+        int r = SubtractSummationx(root.right);
 
         return l-r;
     }
 
-    public static int SumT(BTNode node){
+    private static int SubtractSummationx(BTNode node){
         if (node == null){
             return 0;
         }
 
         int val = (int) node.elem;
-        return val+SumT(node.right)+SumT(node.left);
+        return val+SubtractSummationx(node.right)+SubtractSummationx(node.left);
     }
     //============================================================================
 

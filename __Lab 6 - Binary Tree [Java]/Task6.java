@@ -11,7 +11,7 @@ public class Task6 {
         return levelSumx(root,0);
     }
 
-    public static Integer levelSumx( BTNode root, int lvl ){
+    private static Integer levelSumx( BTNode root, int lvl ){
         if (root ==null){
             return 0;
         }

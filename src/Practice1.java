@@ -1167,11 +1167,7 @@ class Hash{
 }
 
 
-<<<<<<< HEAD
 ///// Recursion
-=======
-
->>>>>>> d8112220490b31429f23a288f68134d7004ab64b
 
 
 class recursion{
@@ -1227,7 +1223,6 @@ class recursion{
         Nsum(s, e, t);
 
     }
-<<<<<<< HEAD
 }
 
 
@@ -1236,7 +1231,7 @@ class recursion{
 
 
 class BT{
-    public static class Node{
+    public class Node{
         String elem;
         Node left;
         Node right;
@@ -1278,7 +1273,9 @@ class BT{
         System.out.print(root.elem+" ");
     }
 
-    // Level Order Printing 
+    // IsIdentical
+
+ 
 
     public static void main(String [] args){
         Node root = new Node("A");
@@ -1312,109 +1309,83 @@ class BT{
 
 
 
-
-
-
-
-
-
-
-
-
-
-/// Task - 03
-
-
-public class Balance{
-    public static int[] balancing (int m, int[] tasks){
-        int[] mL = new int[m];
-        int[] aa = new int[tasks.length];
-
-        for (int i = 0; i < tasks.length;i++){
-            int min = 0;
-
-            for (int j = 0; j < m; j++){
-                if (mL[j] < mL[min]){
-                    min = j;
-                }
-            }
-
-            mL[min] += tasks[i];
-            aa[i] = min;
+class Identical{
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+        Node(int data){
+            this.data = data;
+            this.left = null;
+            this.right = null;
         }
-
-        return aa;
     }
 
 
-    public static void pArr(int[] ar){
-        System.out.print("[");
+    public static boolean isIdentical(Node root1, Node root2 ){
 
-        for (int a = 0; a < ar.length; a++){
-            System.out.print(ar[a]);
-            if (a < ar.length - 1){
-                System.out.print(" ");
-            }
+        if (root1 == null && root2 == null){
+            return true;
         }
-        System.out.print("]");
-    }
 
-    public static void main(String [] args){
-        int a = 4;
-        int[] b = {2,4,7,1,6};
-
-        int [] x = balancing(a, b);
-        int[] c = new int[a];
-        for (int i = 0; i < b.length; i++){
-            c[x[i]] += b[i];
+        if (root1 == null && root2 != null){
+            return false;
         }
-        pArr(x);
-        pArr(c);
+        
+        if (root1 != null && root2 == null){
+            return false;
+        }
 
         
+        // if (root1.data == root2.data ){
+        //     return true;
+        // }
+        
+        if (root1.data != root2.data){
+            return false;
+        }
+
+        return isIdentical(root1.left, root2.left) && isIdentical(root1.right, root2.right);
+    }
+
+
+    public static void main (String [] args){
+        Node root1 = new Node(10);
+        root1.left = new Node(7);
+        root1.left.left = new Node(4);
+        root1.right = new Node(9);
+
+        root1.right = new Node(15);
+        root1.right.right = new Node(20);
+
+        Node root2 = new Node(10);
+        root2.left = new Node(7);
+        root2.left.left = new Node(4);
+        root2.right = new Node(9);
+
+        root2.right = new Node(1);
+        root2.right.right = new Node(20);
+
+        Identical xx = new Identical();
+        System.out.println("Two Binary Comparsion: "+xx.isIdentical(root1, root2)); 
 
     }
 
+         
 }
 
 
 
-// Task - 04 
 
-public class T4{
-    public static int[] T4(int[] nums, int k){
-        MAx_heap = new MAx_heap(nums.lenght);
-        int[] re = new int[k];
 
-        for (int i = 0; i < nums.length; i++){
-            Heap.insertion(nums[i]);
-        }
 
-        for (int i = 0; i < k; i++){
-            re[i] = Heap.max();
-        }
-        return re;
-    }
 
-     public static void pArr(int[] ar){
-        System.out.print("[");
 
-        for (int a = 0; a < ar.length; a++){
-            System.out.print(ar[a]);
-            if (a < ar.length - 1){
-                System.out.print(" ");
-            }
-        }
-        System.out.print("]");
-    }
 
-    public static void main(String [] args){
-        int[] a = {4,10,2,8,6,7};
-        int b = 3;
 
-        int[] nArr = T4(a,b);
-        pArr(nArr);
-    }
-=======
->>>>>>> d8112220490b31429f23a288f68134d7004ab64b
-}
+
+
+
+
+
+
