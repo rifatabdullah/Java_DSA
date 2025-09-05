@@ -1376,6 +1376,10 @@ class Identical{
 
 
 
+<<<<<<< HEAD
+=======
+// Task - 04 //
+>>>>>>> 0375c57736047769a972f35808da958e719cbf40
 
 
 
@@ -1383,9 +1387,28 @@ class Identical{
 
 
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+        int[] nArr = T4(a,b);
+        pArr(nArr);
+    }
+
+
+}
+
+
+
+    public static void main(String [] args){
+        int[] a = {4,10,2,8,6,7};
+        int b = 3;
+
+        int[] nArr = T4(a,b);
+        pArr(nArr);
+    }
+>>>>>>> 0375c57736047769a972f35808da958e719cbf40
