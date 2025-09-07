@@ -1322,7 +1322,7 @@ class Identical{
     }
 
 
-    public static boolean isIdentical(Node root1, Node root2 ){
+    public  boolean isIdentical(Node root1, Node root2 ){
 
         if (root1 == null && root2 == null){
             return true;
@@ -1353,17 +1353,13 @@ class Identical{
         Node root1 = new Node(10);
         root1.left = new Node(7);
         root1.left.left = new Node(4);
-        root1.right = new Node(9);
-
         root1.right = new Node(15);
         root1.right.right = new Node(20);
 
         Node root2 = new Node(10);
         root2.left = new Node(7);
         root2.left.left = new Node(4);
-        root2.right = new Node(9);
-
-        root2.right = new Node(1);
+        root2.right = new Node(15);
         root2.right.right = new Node(20);
 
         Identical xx = new Identical();
@@ -1376,39 +1372,117 @@ class Identical{
 
 
 
-<<<<<<< HEAD
-=======
-// Task - 04 //
->>>>>>> 0375c57736047769a972f35808da958e719cbf40
+
+/// BT creation with the help of Recursion
 
 
-
-
-
-
-
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
-        int[] nArr = T4(a,b);
-        pArr(nArr);
+class BT_R{
+    public class Node{
+        String data;
+        Node left;
+        Node right;
+        Node(String data){
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
     }
 
 
+    public Node buildT(String[] arr, int i){
+
+        if (i >= arr.length || arr[i] == null){
+            return null;
+        }
+
+        Node root = new Node(arr[i]);
+
+        root.left = buildT(arr, 2*i);
+        root.right = buildT(arr, 2*i+1);
+        return root;
+
+    }
+
+    public void in_order(Node root){
+        if(root == null){
+            return;
+        }
+
+        in_order(root.left);
+        System.out.print(root.data+" ");
+        in_order(root.right);
+    }
+
+    public int height(Node root){
+        if (root == null){
+            return 0;
+        }
+
+        return Math.max(height(root.left), height(root.right))+1;
+    }
+
+    public static void main (String[] args){
+        String[] arr = {null,"A","B","C","D","F","G"};
+        BT_R x = new BT_R();
+        Node root = x.buildT(arr, 1);
+        System.out.println("In Order Traversal: ");
+        x.in_order(root);
+
+        System.out.println("\nHeight of the Binary Tree(Node-based) but (Edge based will be 1 less): "+x.height(root));
+    }
+} 
+
+
+
+
+class Maxheap{
+    int[] heap;
+    int count;
+    int capacity;
+    Maxheap(int capacity){
+        this.capacity = capacity;
+        heap = new int [capacity+1];// As starts from index 1
+        count = 0;
+    }
+
+    public void insert (int data){
+        if (count>= capacity){
+            System.out.println("Heap is Full!");
+            return;
+        }
+
+        count++;
+        heap[count] = data;
+        int i = count;
+        
+        //swim()
+        while (i > 1 && heap[i] > heap[i/2]){ // Checks Parents value with Child's value
+            int temp = heap[i];
+            heap[i] = heap[i/2];
+            heap[i/2] = temp;
+            i = i/2; // Child to Parent Node
+
+
+        }
+
+    }
+
+     public void printHeap(){
+            System.out.println("Max_Heap Array: ");
+            for(int i = 1; i <= capacity; i++){
+                System.out.print(heap[i]+" ");
+            }
+            System.out.println();
+        }
+
+        public static void main (String[] args){
+            Maxheap h = new Maxheap(10);
+            h.insert(20);
+            h.insert(15);
+            h.insert(30);
+            h.insert(5);
+            h.insert(10);
+
+            h.printHeap(); 
+        }
 }
-
-
-
-    public static void main(String [] args){
-        int[] a = {4,10,2,8,6,7};
-        int b = 3;
-
-        int[] nArr = T4(a,b);
-        pArr(nArr);
-    }
->>>>>>> 0375c57736047769a972f35808da958e719cbf40
