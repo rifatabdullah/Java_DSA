@@ -1421,6 +1421,27 @@ class BT_R{
         return Math.max(height(root.left), height(root.right))+1;
     }
 
+    public int getDepth(Node root, String target, int depth){
+        if (root == null || root.data == target){
+            return -1;
+        }
+        int leftDepth = getDepth(root, target, depth+1);
+        if (leftDepth != -1){
+            return leftDepth;
+        }
+        int rightDepth = getDepth(root, target, depth+1);
+        return rightDepth;
+    }
+
+    public int nodeCount(Node root){
+        if (root == null){
+            return 0;
+        }
+        return 1+nodeCount(root.left)+nodeCount(root.left);
+
+
+    }
+
     public static void main (String[] args){
         String[] arr = {null,"A","B","C","D","F","G"};
         BT_R x = new BT_R();
@@ -1429,6 +1450,8 @@ class BT_R{
         x.in_order(root);
 
         System.out.println("\nHeight of the Binary Tree(Node-based) but (Edge based will be 1 less): "+x.height(root));
+        int c = x.nodeCount(root);
+        System.out.println(c);
     }
 } 
 
